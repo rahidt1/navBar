@@ -11,6 +11,8 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Typography */
@@ -47,4 +49,26 @@ a {
 }
 .icon--primary {
   color: var(--color-primary);
+}
+
+/* Collapsibles */
+.collapsible__header {
+  display: flex;
+  justify-content: space-between;
+}
+.collapsible__toggler {
+  transition: var(--trasition);
+}
+.collapsible__content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: var(--trasition);
+}
+.collapsible--expanded .collapsible__toggler {
+  transform: rotate(90deg);
+}
+.collapsible--expanded .collapsible__content {
+  max-height: 100%;
+  opacity: 1;
 }
