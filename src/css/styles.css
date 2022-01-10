@@ -12,6 +12,8 @@
 *::before {
   box-sizing: border-box;
 }
+
+/* Typography */
 html {
   font-size: 62.5%;
 }
@@ -21,4 +23,28 @@ body {
   font-family: var(--font-primary);
   font-size: 1.6rem;
   line-height: 1.5;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Icons */
+.icon {
+  width: 15px;
+  height: 15px;
+}
+.icon--large {
+  width: 25px;
+  height: 25px;
+}
+.icon--primary {
+  color: var(--color-primary);
 }
