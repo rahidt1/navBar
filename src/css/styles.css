@@ -1,5 +1,6 @@
 :root {
   --color-primary: #49a6e9;
+  --color-secondary: #a5d5f8;
   --color-text: #324d67;
   --color-body: #f1f5f8;
   --font-primary: "Open Sans", sans-serif;
@@ -40,8 +41,9 @@ a {
 
 /* Icons */
 .icon {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 .icon--large {
   width: 25px;
@@ -69,6 +71,90 @@ a {
   transform: rotate(90deg);
 }
 .collapsible--expanded .collapsible__content {
-  max-height: 100%;
+  /* Its crucial to use 'vh' instead of %. Because the content
+  area shuts abruptly if % is used. It also works if we used fixed
+  value like 'rem'*/
+  max-height: 100vh;
   opacity: 1;
+  transition: var(--trasition);
+}
+
+/* Navigation Bars */
+.nav {
+  background: #fff;
+  box-shadow: var(--light-shadow);
+}
+.nav-center {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1.6rem;
+}
+.nav__list {
+  width: 100%;
+  margin: 0 0 1.5rem 0;
+}
+.nav__item {
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: var(--letter-spacing);
+  padding: 0.8rem;
+  transition: var(--trasition);
+}
+.nav__item:hover {
+  background: var(--color-secondary);
+  padding: 0.8rem 0.8rem 0.8rem 2rem;
+}
+.nav__item:hover.nav__item > a {
+  color: var(--color-primary);
+}
+.nav__item a {
+  color: var(--color-text);
+}
+.nav img {
+  height: 4rem;
+}
+.nav-center .icon-container {
+  margin: auto;
+}
+.nav-center .icon {
+  margin-right: 0.5rem;
+}
+.icon-container.collapsible__content .icon--primary:hover {
+  transition: var(--trasition);
+  color: var(--color-secondary);
+}
+@media screen and (min-width: 768px) {
+  .nav-center {
+    max-width: 1170px;
+    margin: auto;
+  }
+  .nav .collapsible__toggler {
+    display: none;
+  }
+  .nav__list {
+    margin: 0;
+  }
+  .nav__list,
+  .icon-container {
+    width: auto;
+    display: flex;
+    max-height: 100%;
+    opacity: 1;
+  }
+  .nav-center .icon-container {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  .icon-container .icon {
+    margin-right: 1rem;
+  }
+  .nav__item:hover {
+    background: none;
+    color: var(--color-secondary);
+    padding: 0.8rem;
+  }
 }
